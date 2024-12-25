@@ -2,19 +2,20 @@
   <ion-toolbar>
 
     <ion-title>
-      
+
       <ion-item-divider>
         <h2>​G00438846<ion-icon name="settings"></ion-icon></h2>
       </ion-item-divider>
 
-      Country Information 
-      
+
+
     </ion-title>
- 
+
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">
-   
-  <h4 [routerLink]="['/countries']">Countries</h4>
-  
+  <ion-input label="Enter Country" placeholder="Country Name" [(ngModel)]="countryKeyword"></ion-input>
+  <ion-button (click)="openCountries()">Search</ion-button>
+  <!--<h4 [routerLink]="['/countries']">Countries</h4>-->
+
 </ion-content>
