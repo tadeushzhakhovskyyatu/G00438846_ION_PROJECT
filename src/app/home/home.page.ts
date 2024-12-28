@@ -27,4 +27,8 @@ export class HomePage {
      await this.ds.set("kw", this.keyword);
      this.router.navigate(['/countries'])
 }
+
+openSettingsPage(){
+   this.router.navigate(['/settings'])
+}
 }
