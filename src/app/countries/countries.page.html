@@ -1,13 +1,30 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Countries</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+<!--<ion-header [translucent]="true">-->
+  <ion-header>
     <ion-toolbar>
-      <ion-title size="large">Countries</ion-title>
+      <ion-title>Countries</ion-title>
     </ion-toolbar>
   </ion-header>
-</ion-content>
+  
+  <ion-content [fullscreen]="true">
+ 
+    <!--<ion-list>
+    <ion-item *ngFor="let ph of countryFeature">
+    <ion-label>{{ph.r}} {{ph.n}}, {{ph.c}}</ion-label>
+    <ion-label>{{ph.r}} {{ph.c}}</ion-label>
+    </ion-item>
+    </ion-list>-->
+  
+    <ion-card *ngFor="let ph of countryFeature">
+      <img src="{{ph.f}}" />
+      <ion-card-header>
+        <ion-card-title>{{ph.n}}</ion-card-title>
+        <ion-card-subtitle>{{ph.c}}</ion-card-subtitle>
+      </ion-card-header>
+    
+      <ion-card-content>
+        Here's a small text description for the card content. Nothing more, nothing less.
+      </ion-card-content>
+    </ion-card>
+  
+  </ion-content>
+  

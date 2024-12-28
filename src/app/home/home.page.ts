@@ -13,18 +13,18 @@ import { MyDataService } from '../services/my-data.service';
    templateUrl: 'home.page.html',
    styleUrls: ['home.page.scss'],
    standalone: true,
-   imports: [IonButton, IonInput, IonIcon, IonItemDivider, IonHeader, IonToolbar, IonTitle, IonContent, RouterLink, FormsModule],
+   imports: [IonButton, IonInput, IonIcon, IonItemDivider, IonHeader, IonToolbar, IonTitle, IonContent, FormsModule],
 })
 export class HomePage {
  
 
-   countryKeyword: string = "";
+   keyword: string = "";
    constructor(private router: Router, private ds: MyDataService) { 
       addIcons({ settings });
    }
  
    async openCountries() {
-     //await this.ds.set("kw", this.countryKeyword);
+     await this.ds.set("kw", this.keyword);
      this.router.navigate(['/countries'])
 }
 }

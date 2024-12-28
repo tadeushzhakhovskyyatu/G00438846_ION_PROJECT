@@ -11,7 +11,7 @@ export class MyHttpService {
 
   public async get(options: HttpOptions) {
 
-    console.log(options.url)
+   console.log(options.url)
     return await CapacitorHttp.get(options);
     
   } 

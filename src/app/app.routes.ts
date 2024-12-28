@@ -14,13 +14,10 @@ export const routes: Routes = [
     path: 'countries',
     loadComponent: () => import('./countries/countries.page').then( m => m.CountriesPage)
   },
+ 
   {
-    path: 'country-details',
-    loadComponent: () => import('./country-details/country-details.page').then( m => m.CountryDetailsPage)
-  },
-  {
-    path: 'countries',
-    loadComponent: () => import('./countries/countries.page').then( m => m.CountriesPage)
+    path: 'settings',
+    loadComponent: () => import('./settings/settings.page').then( m => m.SettingsPage)
   },
   
   
