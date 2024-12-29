@@ -1,10 +1,10 @@
 <!--<ion-header [translucent]="true">-->
   <ion-header>
     <ion-toolbar>
-      <ion-title>Countries</ion-title>
+      <ion-title>Countries  </ion-title>
     </ion-toolbar>
   </ion-header>
-  
+
   <ion-content [fullscreen]="true">
  
     <!--<ion-list>
@@ -17,12 +17,13 @@
     <ion-card *ngFor="let ph of countryFeature">
       <img src="{{ph.f}}" />
       <ion-card-header>
-        <ion-card-title>{{ph.n}}</ion-card-title>
-        <ion-card-subtitle>{{ph.c}}</ion-card-subtitle>
+        <ion-card-title> {{ph.n}}  </ion-card-title>
+        <ion-card-subtitle>huynia</ion-card-subtitle>
       </ion-card-header>
     
       <ion-card-content>
-        Here's a small text description for the card content. Nothing more, nothing less.
+        <ion-button expand="block"(click)="openNews(ph.a)">News</ion-button>
+       bla bla  
       </ion-card-content>
     </ion-card>
   

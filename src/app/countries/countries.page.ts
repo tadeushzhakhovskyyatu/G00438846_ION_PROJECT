@@ -1,17 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, IonItem, IonList } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, IonItem, IonList, IonButton } from '@ionic/angular/standalone';
 import { HttpOptions } from '@capacitor/core';
 import { MyHttpService } from '../services/my-http.service';
 import { MyDataService } from '../services/my-data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-countries',
   templateUrl: './countries.page.html',
   styleUrls: ['./countries.page.scss'],
   standalone: true,
-  imports: [IonList, IonItem, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent]
+  imports: [IonButton, IonList, IonItem, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent]
 })
 export class CountriesPage implements OnInit {
 
@@ -25,7 +26,17 @@ export class CountriesPage implements OnInit {
    
   }
 
-  constructor(private ds: MyDataService, private mhs: MyHttpService) { }
+  keywordNews: string = "";
+  
+  constructor(private ds: MyDataService, private mhs: MyHttpService, private routerNews: Router, private dNews: MyDataService) { }
+
+  async  openNews(keywordNews: string) {     //WITH ARGS
+    await this.dNews.set("kwNews", keywordNews);
+    this.routerNews.navigate(['/news'])
+    console.log(keywordNews)
+    console.log("BUBA")
+  }
+
 
   ngOnInit() {
     this.getkw();
