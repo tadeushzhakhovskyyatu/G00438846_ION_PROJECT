@@ -7,13 +7,7 @@
 
   <ion-content [fullscreen]="true">
  
-    <!--<ion-list>
-    <ion-item *ngFor="let ph of countryFeature">
-    <ion-label>{{ph.r}} {{ph.n}}, {{ph.c}}</ion-label>
-    <ion-label>{{ph.r}} {{ph.c}}</ion-label>
-    </ion-item>
-    </ion-list>-->
-  
+    
     <ion-card *ngFor="let ph of countryFeature">
       <img src="{{ph.f}}" />
       <ion-card-header>
@@ -22,8 +16,8 @@
       </ion-card-header>
     
       <ion-card-content>
-        <ion-button expand="block"(click)="openNews(ph.a)">News</ion-button>
-       bla bla  
+        <ion-button expand="block" (click)="openNews(ph.a)">News</ion-button>
+       <!---expand="block" here doesn't work at all w/o css adjust-->>bla bla  
       </ion-card-content>
     </ion-card>
   

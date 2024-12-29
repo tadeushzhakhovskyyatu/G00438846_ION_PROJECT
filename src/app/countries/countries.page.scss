@@ -1,0 +1,18 @@
+/*ion-button {
+    display: inline-block
+}*/
+
+ion-card{
+    display: flex;
+    flex-direction: column;
+    margin: 0 !important;
+    background: blue;
+    width: 500px;
+  }
+ion-content{
+background: green;
+}
+ion-content ion-card{
+background: white!important;
+width: 50%;
+}

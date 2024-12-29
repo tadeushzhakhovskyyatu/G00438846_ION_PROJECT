@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
 })
 export class CountriesPage implements OnInit {
 
-
+  vova: string ="";
   countryFeature: any = []
   name!: any;
   keyword: string = "";
@@ -54,7 +54,7 @@ export class CountriesPage implements OnInit {
     console.log(JSON.stringify(this.countryInfo))
 
     for (const person in result.data){
-      this.countryFeature.push({r: person, n: result.data[person].name.official, c: result.data[person].cioc, f: result.data[person].flags.png})
+      this.countryFeature.push({r: person, n: result.data[person].name.official, c: result.data[person].cioc, f: result.data[person].flags.png, a: result.data[person].cca2})
      
     }
 
