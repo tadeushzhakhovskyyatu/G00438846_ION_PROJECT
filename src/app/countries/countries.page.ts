@@ -26,7 +26,10 @@ export class CountriesPage implements OnInit {
    
   }
 
+ 
   keywordNews: string = "";
+  keywordWeather: string = "";
+  array: any = [];
   
   constructor(private ds: MyDataService, private mhs: MyHttpService, private routerNews: Router, private dNews: MyDataService) { }
 
@@ -34,9 +37,21 @@ export class CountriesPage implements OnInit {
     await this.dNews.set("kwNews", keywordNews);
     this.routerNews.navigate(['/news'])
     console.log(keywordNews)
-    console.log("BUBA")
+    console.log("BUBA")//helps me to quickly spot around through pages where is what I need
   }
 
+  async openWeather(keywordWeatherLot: string) {     //WITH ARGS
+    await this.dNews.set("kwNews", keywordWeatherLot);
+    this.routerNews.navigate(['/weather'])
+
+    this.array = keywordWeatherLot.split(",");
+    this.array = keywordWeatherLot.split(" ");
+
+    this.keywordWeather = this.array[0].replace(",", "");
+
+    console.log(this.keywordWeather)
+    console.log("MAMBO")//helps me to quickly spot around through pages where is what I need
+  }
 
   ngOnInit() {
     this.getkw();
@@ -54,10 +69,15 @@ export class CountriesPage implements OnInit {
     console.log(JSON.stringify(this.countryInfo))
 
     for (const person in result.data){
-      this.countryFeature.push({r: person, n: result.data[person].name.official, c: result.data[person].cioc, f: result.data[person].flags.png, a: result.data[person].cca2})
+      this.countryFeature.push({r: person, n: result.data[person].name.official, c: result.data[person].cioc, f: result.data[person].flags.png, a: result.data[person].cca2, z: result.data[person].capital.toString()})
      
     }
+    console.log(this.countryFeature.valueOf())
+    console.log(result.data[0].cca2)
 
+    this.vova = result.data[0].cca2
+
+    console.log(this.vova)//checking typescript miracles for myself
 
 
 

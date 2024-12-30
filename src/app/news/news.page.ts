@@ -60,7 +60,7 @@ export class NewsPage implements OnInit {
 
   this.vovasa = result.data[0].cca2
 
-  console.log( this.vovasa)
+  console.log( this.vovasa)//checking typescript miracles for myself
   
   
 }//END async getnames(){
