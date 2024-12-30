@@ -16,24 +16,25 @@ import { Router } from '@angular/router';
 })
 export class CountriesPage implements OnInit {
 
-  vova: string ="";
+  vova: string = "";
   countryFeature: any = []
   name!: any;
   keyword: string = "";
   countryInfo!: any;
   options: HttpOptions = {
     url: "https://restcountries.com/v3.1/name/"
-   
+
   }
 
- 
+
   keywordNews: string = "";
   keywordWeather: string = "";
   array: any = [];
-  
+
   constructor(private ds: MyDataService, private mhs: MyHttpService, private routerNews: Router, private dNews: MyDataService) { }
 
-  async  openNews(keywordNews: string) {     //WITH ARGS
+
+  async openNews(keywordNews: string) {     //WITH ARGS
     await this.dNews.set("kwNews", keywordNews);
     this.routerNews.navigate(['/news'])
     console.log(keywordNews)
@@ -41,37 +42,43 @@ export class CountriesPage implements OnInit {
   }
 
   async openWeather(keywordWeatherLot: string) {     //WITH ARGS
-    await this.dNews.set("kwNews", keywordWeatherLot);
-    this.routerNews.navigate(['/weather'])
 
     this.array = keywordWeatherLot.split(",");
     this.array = keywordWeatherLot.split(" ");
 
     this.keywordWeather = this.array[0].replace(",", "");
-
+    await this.dNews.set("kwPassingName", keywordWeatherLot);//to pass the [string array long-capital-name] gotten from rest API, as to thee Project task
+    await this.dNews.set("kwWeather", this.keywordWeather);//to pass the cropped to 'one-word' shape out of the upper one to align to Weatherstack API
+    this.routerNews.navigate(['/weather'])
     console.log(this.keywordWeather)
     console.log("MAMBO")//helps me to quickly spot around through pages where is what I need
+    console.log(keywordWeatherLot)
   }
 
   ngOnInit() {
     this.getkw();
+
   }
 
   async getkw() {
 
     this.keyword = await this.ds.get("kw");
     this.options.url = this.options.url.concat(this.keyword)
-      
+
     let result = await this.mhs.get(this.options)
-    
+
     this.countryInfo = result.data
 
-    console.log(JSON.stringify(this.countryInfo))
+    //console.log(JSON.stringify(this.countryInfo))
 
-    for (const person in result.data){
-      this.countryFeature.push({r: person, n: result.data[person].name.official, c: result.data[person].cioc, f: result.data[person].flags.png, a: result.data[person].cca2, z: result.data[person].capital.toString()})
-     
-    }
+    for (const person in result.data) {
+      this.countryFeature.push({ r: person, n: result.data[person].name.official, c: result.data[person].cioc, f: result.data[person].flags.png, a: result.data[person].cca2, z: result.data[person].capital.toString() })
+
+
+
+    }//END LOOP
+
+
     console.log(this.countryFeature.valueOf())
     console.log(result.data[0].cca2)
 
@@ -80,10 +87,10 @@ export class CountriesPage implements OnInit {
     console.log(this.vova)//checking typescript miracles for myself
 
 
+  }//END async getnames(){
 
-  }
-   
+
+
 
 }
-
 
