@@ -1,25 +1,24 @@
 <!--<ion-header [translucent]="true">-->
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Countries  </ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Countries </ion-title>
+  </ion-toolbar>
+</ion-header>
 
-  <ion-content [fullscreen]="true">
- 
-    
-    <ion-card *ngFor="let ph of countryFeature">
-      <img src="{{ph.f}}" />
-      <ion-card-header>
-        <ion-card-title> {{ph.n}}  </ion-card-title>
-        <ion-card-subtitle></ion-card-subtitle>
-      </ion-card-header>
-    
-      <ion-card-content>
-        <ion-button expand="block" (click)="openNews(ph.a)">News</ion-button>
-        <ion-button expand="block"(click)="openWeather(ph.z)">Weather</ion-button>  
-      </ion-card-content>
-    </ion-card>
-  
-  </ion-content>
-  
+<ion-content [fullscreen]="true">
+
+
+  <ion-card *ngFor="let ph of countryFeature">
+    <img src="{{ph.f}}" />
+    <ion-card-header>
+      <ion-card-title> {{ph.n}} </ion-card-title>
+      <ion-card-subtitle></ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-button expand="block" (click)="openNews(ph.a)">News</ion-button>
+      <ion-button expand="block" (click)="openWeather(ph.z)">Weather</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

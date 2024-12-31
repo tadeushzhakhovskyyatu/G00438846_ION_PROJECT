@@ -16,19 +16,19 @@ import { MyDataService } from '../services/my-data.service';
    imports: [IonButton, IonInput, IonIcon, IonItemDivider, IonHeader, IonToolbar, IonTitle, IonContent, FormsModule],
 })
 export class HomePage {
- 
+
 
    keyword: string = "";
-   constructor(private router: Router, private ds: MyDataService) { 
+   constructor(private router: Router, private ds: MyDataService) {
       addIcons({ settings });
    }
- 
-   async openCountries() {
-     await this.ds.set("kw", this.keyword);
-     this.router.navigate(['/countries'])
-}
 
-openSettingsPage(){
-   this.router.navigate(['/settings'])
-}
+   async openCountries() {
+      await this.ds.set("kw", this.keyword);
+      this.router.navigate(['/countries'])
+   }
+
+   openSettingsPage() {
+      this.router.navigate(['/settings'])
+   }
 }
